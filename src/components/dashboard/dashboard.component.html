@@ -1,0 +1,124 @@
+<div class="overlay" *ngIf="sideMenuOpen" (click)="closeMenu()"></div>
+
+<div class="side-menu" [class.open]="sideMenuOpen">
+    <div class="side-menu-header">
+        <div class="side-menu-logo">FitTrack</div>
+        <div class="side-menu-close" (click)="closeMenu()">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <div class="side-menu-item"
+        *ngFor="let item of ['Dashboard', 'Bookings', 'Clients', 'Time Slots', 'Classes', 'Analytics', 'Settings', 'Support']"
+        (click)="setActiveNavItem($event)">
+        <i class="fas fa-{{ item | lowercase }}"></i>
+        <span>{{ item }}</span>
+    </div>
+</div>
+
+<div class="container-fluid content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="header">
+                <div class="menu-icon" (click)="openMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo ms-5">FitTrack</div>
+
+                <!-- Fixed profile dropdown -->
+                <div class="profile-wrapper">
+                    <div class="profile-pic" (click)="toggleProfileMenu($event)"
+                    ></div>
+                    <div class="profile-menu" *ngIf="profileMenuOpen">
+                        <div class="profile-menu-item">
+                            <i class="fas fa-user"></i>
+                            <span>My Profile</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Account Settings</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="greeting">
+                <h1 class="ms-5">Welcome back, John!</h1>
+                <p class="ms-5">Here's what's happening at your gym today</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-5">
+            <div class="card-custom">
+                <h2><i class="fas fa-calendar-check"></i> Bookings</h2>
+                <p class="value">120</p>
+                <p class="trend"><i class="fas fa-arrow-up"></i> 12%</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-5">
+            <div class="card-custom">
+                <h2><i class="fas fa-users"></i> Clients</h2>
+                <p class="value">45</p>
+                <p class="trend"><i class="fas fa-arrow-up"></i> 8%</p>
+            </div>
+        </div>
+        <div class="col-12 col-lg-8 mt-5">
+            <div class="card-custom">
+                <h2><i class="fas fa-dollar-sign"></i> Total Revenue</h2>
+                <p class="value">$5,000</p>
+                <p class="trend"><i class="fas fa-arrow-up"></i> 15% from last month</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 mt-5">
+            <div class="slot-card">
+                <h2><i class="fas fa-clock"></i> Manage Time Slots</h2>
+                <p>Create, update, and organize your available time slots for bookings.</p>
+                <a href="slots.html" class="btn-custom">Manage Slots</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mt-5">
+            <div class="slot-card">
+                <h2><i class="fas fa-dumbbell"></i> Manage Classes</h2>
+                <p>Update class details, instructors, and exercise routines.</p>
+                <a href="classes.html" class="btn-custom">Manage Classes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav-bar">
+    <div class="nav-item-custom active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+    </div>
+</div>
