@@ -1,0 +1,372 @@
+<div class="overlay" [class.show]="showOverlay" (click)="closeSideMenu()"></div>
+
+<div class="side-menu" [class.open]="sideMenuOpen" id="sideMenu">
+  <div class="side-menu-header">
+    <div class="side-menu-logo">FitTrack</div>
+    <div class="side-menu-close" (click)="closeSideMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/dashboard']" routerLinkActive="active">
+    <i class="fas fa-home"></i>
+    <span>Dashboard</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/bookings']" routerLinkActive="active">
+    <i class="fas fa-calendar-alt"></i>
+    <span>Bookings</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/clients']" routerLinkActive="active">
+    <i class="fas fa-users"></i>
+    <span>Clients</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/timeslots']" routerLinkActive="active">
+    <i class="fas fa-clock"></i>
+    <span>Time Slots</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/classes']" routerLinkActive="active">
+    <i class="fas fa-dumbbell"></i>
+    <span>Classes</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/analytics']" routerLinkActive="active">
+    <i class="fas fa-chart-line"></i>
+    <span>Analytics</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/settings']" routerLinkActive="active">
+    <i class="fas fa-cog"></i>
+    <span>Settings</span>
+  </div>
+  <div class="side-menu-item" [routerLink]="['/support']" routerLinkActive="active">
+    <i class="fas fa-headset"></i>
+    <span>Support</span>
+  </div>
+</div>
+
+<div class="container-fluid content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="header">
+        <div class="menu-icon" (click)="openSideMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo ms-5">FitTrack</div>
+        <div class="profile-wrapper">
+          <div class="profile-pic" (click)="toggleProfileMenu()"></div>
+          <div class="profile-menu" [class.show]="profileMenuOpen">
+            <div class="profile-menu-item">
+              <i class="fas fa-user"></i>
+              <span>My Profile</span>
+            </div>
+            <div class="profile-menu-item">
+              <i class="fas fa-cog"></i>
+              <span>Account Settings</span>
+            </div>
+            <div class="profile-menu-item">
+              <i class="fas fa-chart-line"></i>
+              <span>Analytics</span>
+            </div>
+            <div class="profile-menu-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <div class="greeting">
+        <h1>Manage Availability & Time Slots</h1>
+        <p>Create and manage time slots for clients to book</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <div class="tabs-custom">
+        <div class="tab-item" [class.active]="activeTab === 'day-view'" (click)="setActiveTab('day-view')">Daily View</div>
+        <div class="tab-item" [class.active]="activeTab === 'calendar-view'" (click)="setActiveTab('calendar-view')">Calendar View</div>
+        <div class="tab-item" [class.active]="activeTab === 'recurring-slots'" (click)="setActiveTab('recurring-slots')">Recurring Slots</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mb-4">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <h2 class="h5 mb-0">Today's Schedule</h2>
+        <span class="ms-2 badge bg-danger">{{ currentDate | date:'MMMM d, yyyy' }}</span>
+      </div>
+      <button class="btn-custom" >
+        <i class="fas fa-plus me-2"></i> Add New Slot
+      </button>
+    </div>
+  </div>
+  
+  <!-- DAY VIEW TAB -->
+  <div class="tab-content" *ngIf="activeTab === 'day-view'">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <!-- Time slots list -->
+        <div class="time-slot" *ngFor="let slot of timeSlots">
+          <div class="time-slot-info">
+            <div class="time-slot-time">{{ slot.startTime }} - {{ slot.endTime }}</div>
+            <div class="time-slot-details">{{ slot.description }}</div>
+            <div class="time-slot-capacity">
+              <span class="badge-custom" [class.badge-available]="slot.spotsAvailable > 0" [class.badge-booked]="slot.spotsAvailable <= 0">
+                {{ slot.spotsAvailable > 0 ? slot.spotsAvailable + ' spots available' : 'Fully booked' }}
+              </span>
+              <span class="ms-2">Max: {{ slot.maxCapacity }}</span>
+            </div>
+          </div>
+          <div class="time-slot-actions">
+            <div class="action-icon edit" (click)="openSlotModal('edit', slot)">
+              <i class="fas fa-edit"></i>
+            </div>
+            <div class="action-icon delete" (click)="openDeleteModal(slot)">
+              <i class="fas fa-trash"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-lg-4">
+        <div class="card-custom">
+          <h2 class="h5 mb-3">Today's Stats</h2>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Total Slots:</span>
+              <span class="fw-bold">{{ todayStats.totalSlots }}</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Bookings:</span>
+              <span class="fw-bold">{{ todayStats.bookings }}</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Available Spots:</span>
+              <span class="fw-bold">{{ todayStats.availableSpots }}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Utilization:</span>
+              <span class="fw-bold">{{ todayStats.utilization }}%</span>
+            </div>
+          </div>
+          
+          <h2 class="h5 mb-3 mt-4">Quick Actions</h2>
+          <div class="d-grid gap-2">
+            <button class="btn-custom" (click)="copyYesterdaySchedule()">
+              <i class="fas fa-copy me-2"></i> Copy Yesterday's Schedule
+            </button>
+            <button class="btn-custom btn-outline" (click)="setAvailabilityPattern()">
+              <i class="fas fa-calendar-alt me-2"></i> Set Availability Pattern
+            </button>
+            <button class="btn-custom btn-outline" (click)="blockTimeOff()">
+              <i class="fas fa-ban me-2"></i> Block Time Off
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CALENDAR VIEW TAB -->
+  <div class="tab-content" *ngIf="activeTab === 'calendar-view'">
+    <div class="row">
+      <div class="col-12">
+        <div class="card-custom">
+          <div class="calendar-header">
+            <div class="calendar-title">{{ calendarTitle }}</div>
+            <div class="calendar-nav">
+              <div class="calendar-nav-btn" (click)="previousMonth()">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+              <div class="calendar-nav-btn" (click)="nextMonth()">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="calendar-grid">
+            <div class="calendar-day-header" *ngFor="let day of weekDays">{{ day }}</div>
+            
+            <div 
+              *ngFor="let day of calendarDays" 
+              class="calendar-day" 
+              [class.other-month]="!day.currentMonth"
+              [class.today]="day.isToday"
+              [class.selected]="day.isSelected"
+              (click)="selectCalendarDay(day)">
+              <div class="calendar-day-number">{{ day.date }}</div>
+              <div class="calendar-day-slots">{{ day.slots }} slots</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- RECURRING SLOTS TAB -->
+  <div class="tab-content" *ngIf="activeTab === 'recurring-slots'">
+    <div class="row">
+      <div class="col-12">
+        <div class="card-custom">
+          <h2 class="h5 mb-4">Recurring Time Slots</h2>
+          
+          <div class="time-slot" *ngFor="let slot of recurringSlots">
+            <div class="time-slot-info">
+              <div class="time-slot-time">{{ slot.startTime }} - {{ slot.endTime }}</div>
+              <div class="time-slot-details">{{ slot.description }} ({{ slot.recurrence }})</div>
+              <div class="time-slot-capacity">
+                <span class="badge-custom badge-available">{{ slot.maxCapacity }} Max Capacity</span>
+              </div>
+            </div>
+            <div class="time-slot-actions">
+              <div class="action-icon edit" (click)="openSlotModal('edit', slot)">
+                <i class="fas fa-edit"></i>
+              </div>
+              <div class="action-icon delete" (click)="openDeleteModal(slot)">
+                <i class="fas fa-trash"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4">
+            <button class="btn-custom" (click)="openRecurringSlotModal()">
+              <i class="fas fa-plus me-2"></i> Add New Recurring Slot
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Time Slot Modal -->
+<div class="modal-custom" [class.show]="slotModalOpen">
+  <div class="modal-content-custom">
+    <div class="modal-header-custom">
+      <div class="modal-title-custom">{{ modalTitle }}</div>
+      <div class="modal-close-custom" (click)="closeSlotModal()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <form [formGroup]="slotForm" (ngSubmit)="saveSlot()">
+      <div class="form-group-custom">
+        <label class="form-label-custom">Date</label>
+        <input type="date" class="form-control-custom" formControlName="date" required>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group-custom">
+            <label class="form-label-custom">Start Time</label>
+            <input type="time" class="form-control-custom" formControlName="startTime" required>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group-custom">
+            <label class="form-label-custom">End Time</label>
+            <input type="time" class="form-control-custom" formControlName="endTime" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group-custom">
+        <label class="form-label-custom">Description</label>
+        <input type="text" class="form-control-custom" formControlName="description" placeholder="e.g. Yoga Class" required>
+      </div>
+      <div class="form-group-custom">
+        <label class="form-label-custom">Capacity</label>
+        <input type="number" class="form-control-custom" formControlName="capacity" min="1" required>
+      </div>
+      <div class="form-group-custom">
+        <label class="form-label-custom">Color</label>
+        <select class="form-control-custom" formControlName="color">
+          <option value="primary">Blue</option>
+          <option value="success">Green</option>
+          <option value="warning">Orange</option>
+          <option value="danger">Red</option>
+          <option value="info">Teal</option>
+        </select>
+      </div>
+      <div class="form-group-custom">
+        <div class="form-check-custom">
+          <input type="checkbox" id="isRecurring" formControlName="isRecurring">
+          <label for="isRecurring">Make this a recurring slot</label>
+        </div>
+      </div>
+      <div *ngIf="slotForm.get('isRecurring')?.value">
+        <div class="form-group-custom">
+          <label class="form-label-custom">Repeat</label>
+          <select class="form-control-custom" formControlName="recurringType">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="weekdays">Weekdays</option>
+            <option value="weekends">Weekends</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div *ngIf="slotForm.get('recurringType')?.value === 'custom'">
+          <div class="form-group-custom">
+            <label class="form-label-custom">Select Days</label>
+            <div class="d-flex flex-wrap gap-2">
+              <div class="form-check-custom" *ngFor="let day of weekDays; let i = index">
+                <input type="checkbox" [id]="'day' + i" [formControlName]="'day' + i">
+                <label [for]="'day' + i">{{ day }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group-custom">
+          <label class="form-label-custom">End Date</label>
+          <input type="date" class="form-control-custom" formControlName="recurringEndDate">
+        </div>
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn-custom btn-outline" (click)="closeSlotModal()">Cancel</button>
+        <button type="submit" class="btn-custom" [disabled]="slotForm.invalid">Save Slot</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-custom" [class.show]="deleteModalOpen">
+  <div class="modal-content-custom">
+    <div class="modal-header-custom">
+      <div class="modal-title-custom">Confirm Deletion</div>
+      <div class="modal-close-custom" (click)="closeDeleteModal()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <p>Are you sure you want to delete this time slot? This action cannot be undone.</p>
+    <div class="form-buttons">
+      <button class="btn-custom btn-outline" (click)="closeDeleteModal()">Cancel</button>
+      <button class="btn-custom btn-danger-custom" (click)="confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Bar for Mobile -->
+<div class="nav-bar">
+  <div class="nav-item-custom" [routerLink]="['/dashboard']" routerLinkActive="active">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </div>
+  <div class="nav-item-custom" [routerLink]="['/bookings']" routerLinkActive="active">
+    <i class="fas fa-calendar-alt"></i>
+    <span>Bookings</span>
+  </div>
+  <div class="nav-item-custom" [routerLink]="['/slots']" routerLinkActive="active">
+    <i class="fas fa-clock"></i>
+    <span>Time Slots</span>
+  </div>
+  <div class="nav-item-custom" [routerLink]="['/user']" routerLinkActive="active">
+    <i class="fas fa-users"></i>
+    <span>Clients</span>
+  </div>
+  <div class="nav-item-custom" (click)="openSideMenu()">
+    <i class="fas fa-bars"></i>
+    <span>More</span>
+  </div>
+</div>

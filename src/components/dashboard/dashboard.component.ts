@@ -1,10 +1,12 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
+  providers: [DatePipe],  // <-- Add DatePipe here
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
