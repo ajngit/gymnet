@@ -1,1 +1,322 @@
-<p>revenue works!</p>
+
+
+<div class="overlay" id="overlay"></div>
+
+<div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+        <div class="side-menu-logo">FitTrack</div>
+        <div class="side-menu-close" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-clock"></i>
+        <span>Time Slots</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-dumbbell"></i>
+        <span>Classes</span>
+    </div>
+    <div class="side-menu-item active">
+        <i class="fas fa-dollar-sign"></i>
+        <span>Revenue</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Analytics</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-headset"></i>
+        <span>Support</span>
+    </div>
+</div>
+
+<div class="container-fluid content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="header">
+                <div class="menu-icon" id="menuIcon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo ms-5">FitTrack</div>
+                <div class="profile-wrapper">
+                    <div class="profile-pic" id="profilePic" style="background-image: url('/api/placeholder/40/40');"></div>
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-menu-item">
+                            <i class="fas fa-user"></i>
+                            <span>My Profile</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Account Settings</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="greeting">
+                <h1 class="ms-5">Revenue Analytics</h1>
+                <p class="ms-5">Track your gym's financial performance and revenue streams</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="period-selector">
+                <button class="period-btn">Day</button>
+                <button class="period-btn">Week</button>
+                <button class="period-btn active">Month</button>
+                <button class="period-btn">Quarter</button>
+                <button class="period-btn">Year</button>
+                <button class="period-btn">Custom</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card-custom">
+                <h2><i class="fas fa-dollar-sign"></i> Total Revenue</h2>
+                <p class="value">$15,850</p>
+                <p class="trend"><i class="fas fa-arrow-up"></i> 12.5% vs last month</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card-custom">
+                <h2><i class="fas fa-users"></i> New Memberships</h2>
+                <p class="value">38</p>
+                <p class="trend"><i class="fas fa-arrow-up"></i> 8.2% vs last month</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card-custom">
+                <h2><i class="fas fa-dumbbell"></i> Class Bookings</h2>
+                <p class="value">275</p>
+                <p class="trend"><i class="fas fa-arrow-up"></i> 15.3% vs last month</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card-custom">
+                <h2><i class="fas fa-user-clock"></i> Personal Training</h2>
+                <p class="value">58</p>
+                <p class="trend negative"><i class="fas fa-arrow-down"></i> 3.2% vs last month</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card-custom">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2><i class="fas fa-chart-line"></i> Revenue Trends</h2>
+                    <div class="export-btns">
+                        <button class="export-btn">
+                            <i class="fas fa-file-csv"></i> CSV
+                        </button>
+                        <button class="export-btn">
+                            <i class="fas fa-print"></i> Print
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <img src="/api/placeholder/800/300" alt="Revenue trend chart" style="width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card-custom">
+                <h2><i class="fas fa-chart-pie"></i> Revenue Breakdown</h2>
+                <div class="donut-container">
+                    <img src="/api/placeholder/200/200" alt="Revenue breakdown donut chart" style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--primary);"></div>
+                        <span>Memberships (45%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--secondary);"></div>
+                        <span>Classes (28%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--accent);"></div>
+                        <span>Personal Training (18%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--dark);"></div>
+                        <span>Other (9%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card-custom">
+                <h2><i class="fas fa-list"></i> Recent Transactions</h2>
+                <div class="table-responsive">
+                    <table class="revenue-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Client</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mar 22, 2025</td>
+                                <td>Sarah Johnson</td>
+                                <td><span class="table-tag tag-membership">Membership</span></td>
+                                <td>$89.99</td>
+                                <td><span style="color: var(--success);">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 22, 2025</td>
+                                <td>Michael Chen</td>
+                                <td><span class="table-tag tag-personal">Personal Training</span></td>
+                                <td>$65.00</td>
+                                <td><span style="color: var(--success);">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 21, 2025</td>
+                                <td>Emily Wilson</td>
+                                <td><span class="table-tag tag-class">Group Class</span></td>
+                                <td>$25.00</td>
+                                <td><span style="color: var(--success);">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 21, 2025</td>
+                                <td>James Rodriguez</td>
+                                <td><span class="table-tag tag-membership">Membership</span></td>
+                                <td>$79.99</td>
+                                <td><span style="color: var(--warning);">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 20, 2025</td>
+                                <td>Olivia Williams</td>
+                                <td><span class="table-tag tag-other">Merchandise</span></td>
+                                <td>$34.50</td>
+                                <td><span style="color: var(--success);">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 20, 2025</td>
+                                <td>Daniel Lee</td>
+                                <td><span class="table-tag tag-class">Group Class</span></td>
+                                <td>$25.00</td>
+                                <td><span style="color: var(--success);">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <a href="#" class="btn-custom btn-outline">View All Transactions</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card-custom">
+                <h2><i class="fas fa-calculator"></i> Monthly Summary</h2>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <span>Membership Revenue</span>
+                        <span>$7,132.50</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Class Revenue</span>
+                        <span>$4,438.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Personal Training</span>
+                        <span>$2,853.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Other Revenue</span>
+                        <span>$1,426.50</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Revenue</span>
+                        <span>$15,850.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-custom">
+                <h2><i class="fas fa-trophy"></i> Top Performing Classes</h2>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <span>HIIT Workout</span>
+                        <span>$1,625.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Yoga Flow</span>
+                        <span>$1,250.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Spin Class</span>
+                        <span>$875.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Zumba</span>
+                        <span>$688.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation Bar for Mobile -->
+<div class="nav-bar">
+    <div class="nav-item-custom">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="nav-item-custom active">
+        <i class="fas fa-clock"></i>
+        <span>Time Slots</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-bars"></i>
+        <span>More</span>
+    </div>
+</div>

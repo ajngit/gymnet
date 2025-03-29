@@ -1,1 +1,267 @@
-<p>userdetails works!</p>
+
+
+<div class="overlay" id="overlay"></div>
+
+<div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+        <div class="side-menu-logo">FitTrack</div>
+        <div class="side-menu-close" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="side-menu-item active">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-clock"></i>
+        <span>Time Slots</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-dumbbell"></i>
+        <span>Classes</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Analytics</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-headset"></i>
+        <span>Support</span>
+    </div>
+</div>
+
+<div class="container-fluid content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="header">
+                <div class="menu-icon" id="menuIcon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo ms-5">FitTrack</div>
+                <div class="profile-wrapper">
+                    <div class="profile-pic" id="profilePic" style="background-image: url('/api/placeholder/40/40');"></div>
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-menu-item">
+                            <i class="fas fa-user"></i>
+                            <span>My Profile</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Account Settings</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="greeting">
+                <h1 class="ms-5">Clients</h1>
+                <p class="ms-5">View and manage your client list</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="card-custom">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3>Client List</h3>
+                    <a href="#" class="btn-custom"><i class="fas fa-plus me-2"></i> Add New Client</a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search by name, email, or phone...">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="filter-container">
+                    <div class="filter-btn active">All Clients</div>
+                    <div class="filter-btn">Active</div>
+                    <div class="filter-btn">Premium</div>
+                    <div class="filter-btn">New Clients</div>
+                    <div class="filter-btn">Payment Due</div>
+                    <div class="filter-btn">Inactive</div>
+                </div>
+                
+                <!-- Client List -->
+                <a  class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div [routerLink]="['/user']" class="user-card-info">
+                        <div class="user-card-name">Sarah Johnson</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> sarah.johnson&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 123-4567</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-premium">Premium</span></div>
+                            <div class="user-card-detail"><span class="badge-custom badge-success">Active</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </a>
+                
+                <div class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div class="user-card-info">
+                        <div class="user-card-name">Michael Thompson</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> michael.t&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 987-6543</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-premium">Premium</span></div>
+                            <div class="user-card-detail"><span class="badge-custom badge-success">Active</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                
+                <div class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div class="user-card-info">
+                        <div class="user-card-name">Jessica Williams</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> jessica.w&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 234-5678</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-success">Active</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                
+                <div class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div class="user-card-info">
+                        <div class="user-card-name">David Miller</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> david.m&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 876-5432</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-warning">Payment Due</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                
+                <div class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div class="user-card-info">
+                        <div class="user-card-name">Emily Davis</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> emily.d&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 345-6789</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-premium">Premium</span></div>
+                            <div class="user-card-detail"><span class="badge-custom badge-success">Active</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                
+                <div class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div class="user-card-info">
+                        <div class="user-card-name">Robert Wilson</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> robert.w&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 456-7890</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-danger">Inactive</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                
+                <div class="user-card">
+                    <div class="user-card-img" style="background-image: url('/api/placeholder/60/60');"></div>
+                    <div class="user-card-info">
+                        <div class="user-card-name">Jennifer Brown</div>
+                        <div class="user-card-details">
+                            <div class="user-card-detail"><i class="fas fa-envelope"></i> jennifer.b&#64;example.com</div>
+                            <div class="user-card-detail"><i class="fas fa-phone"></i> (555) 567-8901</div>
+                            <div class="user-card-detail"><span class="badge-custom badge-success">Active</span></div>
+                        </div>
+                    </div>
+                    <div class="user-card-actions">
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-calendar-plus"></i></button>
+                        <button class="btn-outline-custom btn-sm"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <ul class="pagination">
+                        <li class="pagination-item"><i class="fas fa-chevron-left"></i></li>
+                        <li class="pagination-item active">1</li>
+                        <li class="pagination-item">2</li>
+                        <li class="pagination-item">3</li>
+                        <li class="pagination-item">...</li>
+                        <li class="pagination-item">12</li>
+                        <li class="pagination-item"><i class="fas fa-chevron-right"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation Bar for Mobile -->
+<div class="nav-bar">
+    <div class="nav-item-custom">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="nav-item-custom active">
+        <i class="fas fa-clock"></i>
+        <span>Time Slots</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-bars"></i>
+        <span>More</span>
+    </div>
+</div>

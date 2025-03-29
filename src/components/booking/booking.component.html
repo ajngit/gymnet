@@ -1,1 +1,602 @@
-<p>booking works!</p>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+        <div class="side-menu-logo">FitTrack</div>
+        <div class="side-menu-close" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+    </div>
+    <div class="side-menu-item active">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-clock"></i>
+        <span>Time Slots</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-dumbbell"></i>
+        <span>Classes</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Analytics</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+    </div>
+    <div class="side-menu-item">
+        <i class="fas fa-headset"></i>
+        <span>Support</span>
+    </div>
+</div>
+
+<div class="container-fluid content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="header">
+                <div class="menu-icon" id="menuIcon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo ms-5">FitTrack</div>
+                <div class="profile-wrapper">
+                    <div class="profile-pic" id="profilePic" style="background-image: url('/api/placeholder/40/40');"></div>
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-menu-item">
+                            <i class="fas fa-user"></i>
+                            <span>My Profile</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Account Settings</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="profile-menu-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="greeting">
+                <h1 class="ms-5">Booking Management</h1>
+                <p class="ms-5">View, create and manage gym bookings</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-lg-4">
+            <div class="card-custom">
+                <h2><i class="fas fa-search"></i> Find Bookings</h2>
+                
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search clients, classes...">
+                </div>
+                
+                <div class="filter-container">
+                    <div class="filter-item active">All</div>
+                    <div class="filter-item">Upcoming</div>
+                    <div class="filter-item">Completed</div>
+                    <div class="filter-item">Cancelled</div>
+                </div>
+                
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <div class="calendar-nav">
+                            <div class="calendar-nav-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </div>
+                            <div class="calendar-month">March 2025</div>
+                            <div class="calendar-nav-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                        
+                        <!-- Empty cells for days before start of month -->
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        
+                        <!-- Calendar days -->
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">1</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">2</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">3</div>
+                            <div class="calendar-day-bookings">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">4</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">5</div>
+                            <div class="calendar-day-bookings">0</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">6</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">7</div>
+                            <div class="calendar-day-bookings">4</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">8</div>
+                            <div class="calendar-day-bookings">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">9</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">10</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">11</div>
+                            <div class="calendar-day-bookings">5</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">12</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">13</div>
+                            <div class="calendar-day-bookings">0</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">14</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">15</div>
+                            <div class="calendar-day-bookings">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">16</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">17</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">18</div>
+                            <div class="calendar-day-bookings">4</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">19</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">20</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">21</div>
+                            <div class="calendar-day-bookings">0</div>
+                        </div>
+                        <div class="calendar-day active">
+                            <div class="calendar-day-number">22</div>
+                            <div class="calendar-day-bookings">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">23</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">24</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">25</div>
+                            <div class="calendar-day-bookings">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">26</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">27</div>
+                            <div class="calendar-day-bookings">0</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">28</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">29</div>
+                            <div class="calendar-day-bookings">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">30</div>
+                            <div class="calendar-day-bookings">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">31</div>
+                            <div class="calendar-day-bookings">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-8">
+            <div class="booking-card">
+                <div class="booking-header">
+                    <div class="booking-title">
+                        <i class="fas fa-dumbbell"></i>
+                        Personal Training Session
+                    </div>
+                    <div class="booking-status status-upcoming">Upcoming</div>
+                </div>
+                <div class="booking-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Client</div>
+                        <div class="detail-value">John Doe</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">March 23, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">10:00 AM - 11:00 AM</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">Main Gym - Room 2</div>
+                    </div>
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar" style="background-image: url('/api/placeholder/50/50');"></div>
+                    <div class="client-details">
+                        <div class="client-name">John Doe</div>
+                        <div class="client-email">john.doebexample.com</div>
+                        <div class="client-phone">(123) 456-7890</div>
+                    </div>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-custom btn-sm">Reschedule</button>
+                    <button class="btn-custom btn-outline btn-sm">Cancel</button>
+                </div>
+            </div>
+            
+            <div class="booking-card">
+                <div class="booking-header">
+                    <div class="booking-title">
+                        <i class="fas fa-users"></i>
+                        Group HIIT Class
+                    </div>
+                    <div class="booking-status status-upcoming">Upcoming</div>
+                </div>
+                <div class="booking-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Client</div>
+                        <div class="detail-value">Sarah Johnson</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">March 24, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">5:30 PM - 6:30 PM</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">Studio A</div>
+                    </div>
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar" style="background-image: url('/api/placeholder/50/50');"></div>
+                    <div class="client-details">
+                        <div class="client-name">Sarah Johnson</div>
+                        <div class="client-email">sarah.jbexample.com</div>
+                        <div class="client-phone">(456) 789-0123</div>
+                    </div>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-custom btn-sm">Reschedule</button>
+                    <button class="btn-custom btn-outline btn-sm">Cancel</button>
+                </div>
+            </div>
+            
+            <div class="booking-card">
+                <div class="booking-header">
+                    <div class="booking-title">
+                        <i class="fas fa-heartbeat"></i>
+                        Fitness Assessment
+                    </div>
+                    <div class="booking-status status-completed">Completed</div>
+                </div>
+                <div class="booking-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Client</div>
+                        <div class="detail-value">Michael Smith</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">March 20, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">2:00 PM - 3:00 PM</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">Assessment Room</div>
+                    </div>
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar" style="background-image: url('/api/placeholder/50/50');"></div>
+                    <div class="client-details">
+                        <div class="client-name">Michael Smith</div>
+                        <div class="client-email">michael.bexample.com</div>
+                        <div class="client-phone">(789) 012-3456</div>
+                    </div>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-custom btn-sm">View Details</button>
+                </div>
+            </div>
+            
+            <div class="booking-card">
+                <div class="booking-header">
+                    <div class="booking-title">
+                        <i class="fas fa-swimming-pool"></i>
+                        Aqua Fitness
+                    </div>
+                    <div class="booking-status status-cancelled">Cancelled</div>
+                </div>
+                <div class="booking-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Client</div>
+                        <div class="detail-value">Emily Brown</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">March 19, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">11:00 AM - 12:00 PM</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">Pool Area</div>
+                    </div>
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar" style="background-image: url('/api/placeholder/50/50');"></div>
+                    <div class="client-details">
+                        <div class="client-name">Emily Brown</div>
+                        <div class="client-email">emily.bexample.com</div>
+                        <div class="client-phone">(234) 567-8901</div>
+                    </div>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-custom btn-sm">Rebook</button>
+                </div>
+            </div>
+            
+            <button class="btn-custom w-100 mt-4">
+                <i class="fas fa-plus me-2"></i> Create New Booking
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- New Booking Modal -->
+<div class="modal-custom" id="newBookingModal">
+    <div class="modal-content-custom">
+        <div class="modal-header-custom">
+            <div class="modal-title-custom">Create New Booking</div>
+            <div class="modal-close-custom" id="closeBookingModal">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label class="form-label">Client</label>
+                <select class="form-select-custom">
+                    <option>Select a client</option>
+                    <option>John Doe</option>
+                    <option>Sarah Johnson</option>
+                    <option>Michael Smith</option>
+                    <option>Emily Brown</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Service Type</label>
+                <select class="form-select-custom">
+                    <option>Select a service</option>
+                    <option>Personal Training</option>
+                    <option>Group HIIT Class</option>
+                    <option>Fitness Assessment</option>
+                    <option>Aqua Fitness</option>
+                    <option>Yoga Class</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control-custom">
+            </div>
+            
+            <div class="slot-selector">
+                <div class="slot-selector-header">Available Time Slots</div>
+                <div class="time-slots">
+                    <div class="time-slot">8:00 AM</div>
+                    <div class="time-slot">9:00 AM</div>
+                    <div class="time-slot booked">10:00 AM</div>
+                    <div class="time-slot active">11:00 AM</div>
+                    <div class="time-slot">12:00 PM</div>
+                    <div class="time-slot booked">1:00 PM</div>
+                    <div class="time-slot">2:00 PM</div>
+                    <div class="time-slot">3:00 PM</div>
+                    <div class="time-slot booked">4:00 PM</div>
+                    <div class="time-slot">5:00 PM</div>
+                    <div class="time-slot">6:00 PM</div>
+                    <div class="time-slot">7:00 PM</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Notes</label>
+                <textarea class="form-control-custom" rows="3" placeholder="Add booking notes..."></textarea>
+            </div>
+            
+            <div class="modal-footer-custom">
+                <button type="button" class="btn-custom btn-outline" id="cancelBookingBtn">Cancel</button>
+                <button type="submit" class="btn-custom">Create Booking</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Mobile Navigation Bar -->
+<div class="nav-bar">
+    <div class="nav-item-custom">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
+    <div class="nav-item-custom active">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Bookings</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-users"></i>
+        <span>Clients</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-plus-circle"></i>
+        <span>New</span>
+    </div>
+    <div class="nav-item-custom">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </div>
+</div>
+
+<!-- Bootstrap and Custom JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Menu Toggle
+    document.getElementById("menuIcon").addEventListener("click", function() {
+        document.getElementById("sideMenu").classList.add("open");
+        document.getElementById("overlay").classList.add("show");
+    });
+    
+    document.getElementById("closeMenu").addEventListener("click", function() {
+        document.getElementById("sideMenu").classList.remove("open");
+        document.getElementById("overlay").classList.remove("show");
+    });
+    
+    document.getElementById("overlay").addEventListener("click", function() {
+        document.getElementById("sideMenu").classList.remove("open");
+        document.getElementById("overlay").classList.remove("show");
+        document.getElementById("profileMenu").classList.remove("show");
+    });
+    
+    // Profile Menu Toggle
+    document.getElementById("profilePic").addEventListener("click", function(event) {
+        event.stopPropagation();
+        document.getElementById("profileMenu").classList.toggle("show");
+    });
+    
+    document.addEventListener("click", function(event) {
+        if (!document.getElementById("profilePic").contains(event.target)) {
+            document.getElementById("profileMenu").classList.remove("show");
+        }
+    });
+    
+    // New Booking Modal
+    const newBookingBtn = document.querySelector(".btn-custom.w-100.mt-4");
+    const newBookingModal = document.getElementById("newBookingModal");
+    const closeBookingModal = document.getElementById("closeBookingModal");
+    const cancelBookingBtn = document.getElementById("cancelBookingBtn");
+    
+    newBookingBtn.addEventListener("click", function() {
+        newBookingModal.classList.add("show");
+    });
+    
+    closeBookingModal.addEventListener("click", function() {
+        newBookingModal.classList.remove("show");
+    });
+    
+    cancelBookingBtn.addEventListener("click", function() {
+        newBookingModal.classList.remove("show");
+    });
+    
+    // Calendar Day Selection
+    const calendarDays = document.querySelectorAll(".calendar-day");
+    
+    calendarDays.forEach(day => {
+        if (day.querySelector(".calendar-day-number")) {
+            day.addEventListener("click", function() {
+                calendarDays.forEach(d => d.classList.remove("active"));
+                this.classList.add("active");
+            });
+        }
+    });
+    
+    // Filter Selection
+    const filterItems = document.querySelectorAll(".filter-item");
+    
+    filterItems.forEach(item => {
+        item.addEventListener("click", function() {
+            filterItems.forEach(i => i.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+    
+    // Time Slot Selection
+    const timeSlots = document.querySelectorAll(".time-slot:not(.booked)");
+    
+    timeSlots.forEach(slot => {
+        slot.addEventListener("click", function() {
+            timeSlots.forEach(s => s.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+</script>

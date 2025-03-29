@@ -62,21 +62,21 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 mt-5">
+        <div [routerLink]="['/booking']" class="col-12 col-md-6 col-lg-4 mt-5">
             <div class="card-custom">
                 <h2><i class="fas fa-calendar-check"></i> Bookings</h2>
                 <p class="value">120</p>
                 <p class="trend"><i class="fas fa-arrow-up"></i> 12%</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-5">
+        <div [routerLink]="['/userlist']" class="col-12 col-md-6 col-lg-4 mt-5">
             <div class="card-custom">
                 <h2><i class="fas fa-users"></i> Clients</h2>
                 <p class="value">45</p>
                 <p class="trend"><i class="fas fa-arrow-up"></i> 8%</p>
             </div>
         </div>
-        <div class="col-12 col-lg-8 mt-5">
+        <div [routerLink]="['/revenue']" class="col-12 col-lg-8 mt-5">
             <div class="card-custom">
                 <h2><i class="fas fa-dollar-sign"></i> Total Revenue</h2>
                 <p class="value">$5,000</p>
@@ -94,13 +94,13 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-6 mt-5">
+        <!-- <div class="col-12 col-md-6 mt-5">
             <div class="slot-card">
                 <h2><i class="fas fa-dumbbell"></i> Manage Classes</h2>
                 <p>Update class details, instructors, and exercise routines.</p>
                 <a href="classes.html" class="btn-custom">Manage Classes</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
